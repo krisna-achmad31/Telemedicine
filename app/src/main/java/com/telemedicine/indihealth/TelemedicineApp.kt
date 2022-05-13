@@ -12,8 +12,6 @@ class TelemedicineApp : Application(){
         initTimber()
     }
 
-
-
     private fun initTimber(){
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
