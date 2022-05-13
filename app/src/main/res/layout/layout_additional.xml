@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.activity.additional.AdditionalVIewModel" />
+    </data>
+    <LinearLayout
+        android:background="@color/splashScreenBackgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/additional_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Informasi Tambahan"
+            app:titleTextColor="@color/white" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="16dp"
+            app:cardMaxElevation="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/additional_til_planning"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/rounded_gray_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/additional_tiet_planning"
+                        style="@style/CommonEditTextStyle"
+                        android:hint="Planning"
+                        android:text="@={vm.planning}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cb_laboratory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Laboratorium"/>
+
+                    <CheckBox
+                        android:id="@+id/cb_radiology"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Radiologi"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/additional_til_inspection"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rounded_gray_background"
+                    android:layout_width="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:hint="Pemeriksaan Penunjang"
+                        android:id="@+id/et_inspection"
+                        android:text="@={vm.inspection}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/additional_til_kesimpulan"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rounded_gray_background"
+                    android:layout_width="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:hint="Kesimpulan"
+                        android:id="@+id/et_conclusion"
+                        android:text="@={vm.conslusion}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/additional_button_save"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Simpan"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

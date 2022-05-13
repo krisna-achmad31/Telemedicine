@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.doctor.schedule.DoctorScheduleViewModel" />
+        <variable
+            name="adapter"
+            type="com.telemedicine.indihealth.ui.fragment.doctor.schedule.DoctorScheduleAdapter" />
+    </data>
+
+
+    <LinearLayout
+        android:background="@color/splashScreenBackgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/doctor_schedule_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Jadwal Dokter"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:background="@color/splashScreenBackgroundColor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_margin="8dp"
+                    android:id="@+id/consultation_registration_rv_consultation_list"
+                    rvAdapter="@{adapter}"
+                    setAdapterDoctorScheduleList="@{vm.queueList}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_doctor_schedule" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/queue_mcv_no_data"
+                    setVisibility="@{vm.isQueueListExist()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    android:layout_margin="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/consultation_registration_ll_no_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:paddingTop="80dp"
+                        android:paddingBottom="80dp">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_no_data"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            style="@style/TextBody1Style"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Tidak Ada Data Jadwal Yang Ditemukan"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

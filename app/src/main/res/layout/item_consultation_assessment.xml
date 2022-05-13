@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="assessment"
+            type="com.telemedicine.indihealth.model.Assessment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="12dp"
+        android:layout_marginBottom="8dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_consultation_label"
+                style="@style/TextBody2Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Konsultasi dengan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_poly"
+                style="@style/TextBody1Style"
+                android:layout_marginTop="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:singleLine="false"
+                android:text="@{assessment.nama_dokter}"
+                app:layout_constraintTop_toBottomOf="@id/tv_consultation_label"/>
+
+            <TextView
+                android:id="@+id/item_history_payment_tv_poli"
+                style="@style/TextBody1Style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:text="@{assessment.poli}"
+                app:layout_constraintTop_toBottomOf="@id/item_consultation_doctor_tv_poly"/>
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/shape_dotted_grey"
+                app:layout_constraintTop_toBottomOf="@+id/item_history_payment_tv_poli" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_time"
+                style="@style/TextBody3Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{assessment.getConsultationDate}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:text="Isi Assessment"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_time"
+                app:strokeColor="@color/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">125.213.128.90</domain>
+        <domain includeSubdomains="true">telemedicine-api-dev-combine.indihealth.com</domain>
+        <domain includeSubdomains="true">telemedicinelintasdemo2.indihealth.com</domain>
+        <domain includeSubdomains="true">telemedicinelintasdev.indihealth.com</domain>
+        <domain includeSubdomains="true">api-lintasarta.telemedical.id</domain>
+        <domain includeSubdomains="true">lintasarta.telemedical.id</domain>
+        <domain includeSubdomains="true">api-poc-lintasarta.telemedical.id</domain>
+        <domain includeSubdomains="true">api-idok.telemedical.id</domain>
+        <domain includeSubdomains="true">api-poc-idok.telemedical.id</domain>
+        <domain includeSubdomains="true">demo-lintasarta.telemedical.id</domain>
+        <domain includeSubdomains="true">api-demo-lintasarta.telemedical.id</domain>
+    </domain-config>
+
+</network-security-config>

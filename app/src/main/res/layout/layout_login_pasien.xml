@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textView3"
+            android:scrollbars="none">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/splashScreenBackgroundColor"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="83dp"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/logo_radjiman"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="32dp"
+                    android:src="@drawable/top_rounded_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_logo"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:layout_editor_absoluteX="81dp" />
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/TextHeader1Style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Masuk"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/iv_background" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Nama Pengguna"
+                        android:text="@={vm.email}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Kata Sandi"
+                        android:maxLines="1"
+                        android:inputType="textPassword"
+                        android:text="@={vm.password}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button"
+                    style="@style/CommonButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="@{vm.isFieldsFilled()}"
+                    android:enabled="@{vm.isFieldsFilled()}"
+                    android:text="Masuk"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textInputLayout2" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/lupa_password"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/borderColor"
+            app:layout_constraintBottom_toTopOf="@id/textView3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/belum_memiliki_akun_klik_untuk_daftar"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

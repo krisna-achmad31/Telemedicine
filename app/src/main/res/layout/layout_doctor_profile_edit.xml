@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.doctor.profile.edit.DoctorProfileEditViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_edit_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Edit Profile"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cv_image_picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="0dp"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/no_image"
+                                setCircleImageUrlWithBaseUrl="@{vm.userData.foto}"
+                                android:layout_width="156dp"
+                                android:layout_height="156dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/ic_person_circle"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/consultation_payment_detail_iv_photo"
+                                android:layout_width="156dp"
+                                android:layout_height="156dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cv_image_picker">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:hint="Nama Lengkap"
+                            android:text="@={vm.fullname}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/dotted"
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/shape_dotted_grey"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                        tools:ignore="MissingConstraints" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout2"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dotted">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:hint="Nomor Telepon"
+                            android:text="@={vm.telephone}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout3"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:hint="E-mail"
+                            android:text="@={vm.email}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout4"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:hint="Tempat Lahir"
+                            android:text="@={vm.birth_place}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout5"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tv_birth"
+                            style="@style/CommonEditTextStyle"
+                            android:layout_marginEnd="40dp"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="Tanggal Lahir (Klik Disini)"
+                            android:text="@={vm.birth_date}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_calendar"
+                        app:layout_constraintBottom_toBottomOf="@id/textInputLayout5"
+                        app:layout_constraintEnd_toEndOf="@id/textInputLayout5"
+                        app:layout_constraintTop_toTopOf="@id/textInputLayout5" />
+
+                    <Spinner
+                        android:id="@+id/dd_gender"
+                        style="@style/CommonSpinnerStyle"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/edit_text_rounded_background"
+                        android:paddingStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:paddingEnd="40dp"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        app:layout_constraintBottom_toBottomOf="@id/dd_gender"
+                        app:layout_constraintEnd_toEndOf="@id/dd_gender"
+                        app:layout_constraintTop_toTopOf="@id/dd_gender" />
+
+                    <Spinner
+                        android:id="@+id/profile_patient_edit_spinner_provinsi"
+                        style="@style/CommonSpinnerStyle"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/edit_text_rounded_background"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="40dp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/dd_gender" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_patient_edit_spinner_provinsi"
+                        app:layout_constraintEnd_toEndOf="@id/profile_patient_edit_spinner_provinsi"
+                        app:layout_constraintTop_toTopOf="@id/profile_patient_edit_spinner_provinsi" />
+
+                    <Spinner
+                        android:id="@+id/profile_patient_edit_spinner_kota"
+                        style="@style/CommonSpinnerStyle"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/edit_text_rounded_background"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="40dp"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_provinsi" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_patient_edit_spinner_kota"
+                        app:layout_constraintEnd_toEndOf="@id/profile_patient_edit_spinner_kota"
+                        app:layout_constraintTop_toTopOf="@id/profile_patient_edit_spinner_kota" />
+
+                    <Spinner
+                        android:id="@+id/profile_patient_edit_spinner_kecamatan"
+                        style="@style/CommonSpinnerStyle"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/edit_text_rounded_background"
+                        android:paddingStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:paddingEnd="40dp"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kota" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_patient_edit_spinner_kecamatan"
+                        app:layout_constraintEnd_toEndOf="@id/profile_patient_edit_spinner_kecamatan"
+                        app:layout_constraintTop_toTopOf="@id/profile_patient_edit_spinner_kecamatan" />
+
+                    <Spinner
+                        android:id="@+id/profile_patient_edit_spinner_kelurahan"
+                        style="@style/CommonSpinnerStyle"
+                        android:layout_width="match_parent"
+                        android:background="@drawable/edit_text_rounded_background"
+                        android:paddingStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:paddingEnd="40dp"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kecamatan" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_patient_edit_spinner_kelurahan"
+                        app:layout_constraintEnd_toEndOf="@id/profile_patient_edit_spinner_kelurahan"
+                        app:layout_constraintTop_toTopOf="@id/profile_patient_edit_spinner_kelurahan" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout6"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kelurahan">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:hint="Alamat Jalan"
+                            android:text="@={vm.address_street}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout7"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:digits="0123456789"
+                            android:hint="Kode Pos"
+                            android:text="@={vm.post_code}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout8"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            style="@style/CommonEditTextStyle"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:digits="0123456789"
+                            android:hint="Nomor Owlexa" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonUpdateUsername"
+                        style="@style/CommonButtonStyle"
+                        android:layout_width="match_parent"
+                        android:text="Perbaharui Nama Pengguna"
+                        app:layout_constraintTop_toBottomOf="@id/textInputLayout8" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonUpdatePassword"
+                        style="@style/CommonButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:text="Perbaharui Kata Sandi"
+                        app:layout_constraintTop_toBottomOf="@id/buttonUpdateUsername" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_show_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Edit Profil Dokter"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="10dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="40dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/consultation_payment_detail_mcv_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        app:cardCornerRadius="8dp">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/consultation_payment_detail_iv_photo"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/consultation_payment_detail_ll_pick_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imageView10"
+                                android:background="@drawable/ic_person_circle"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                setCircleImageUrlWithBaseUrl="@{vm.userData.foto}"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/consultation_payment_detail_mcv_photo"
+                        app:startIconDrawable="@drawable/ic_person">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:background="@drawable/shape_rectangle_rounded_gray"
+                            android:hint="Nama Lengkap"
+                            android:singleLine="true"
+                            android:text="@={vm.fullname}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/text_patient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dokter"
+                        android:textSize="8pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_str"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STR :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_patient"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/str"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.userData.str}"
+                        android:textSize="9pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_str"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_poly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spesialis/Poli :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/str"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/poly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.userData.poli}"
+                        android:textSize="9pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_poly"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengalaman :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/poly"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.userData.getPengalaman}"
+                        android:textSize="9pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_experience"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/dotted"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/shape_dotted_grey"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/experience"
+                        tools:ignore="MissingConstraints" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dotted"
+                        app:startIconDrawable="@drawable/ic_telephone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:background="@drawable/shape_rectangle_rounded_gray"
+                            android:hint="Nomor Telepon"
+                            android:singleLine="true"
+                            android:text="@={vm.telephone}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+                        app:startIconDrawable="@drawable/ic_telephone">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:background="@drawable/shape_rectangle_rounded_gray"
+                            android:hint="Email"
+                            android:singleLine="true"
+                            android:text="@={vm.email}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email"
+                        app:startIconDrawable="@drawable/ic_location">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:background="@drawable/shape_rectangle_rounded_gray"
+                            android:hint="Tempat Lahir"
+                            android:singleLine="true"
+                            android:text="@={vm.birth_place}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                        app:startIconDrawable="@drawable/ic_calendar">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/birth_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{vm::afterTextChanged}"
+                            android:background="@drawable/shape_rectangle_rounded_gray"
+                            android:hint="Tanggal Lahir (Klik Disini)"
+                            android:singleLine="true"
+                            android:editable="false"
+                            android:text="@={vm.birth_date}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+                        <TextView
+                            android:id="@+id/tv_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Jenis Kelamin :"
+                            tools:ignore="MissingConstraints" />
+
+                        <Spinner
+                            android:id="@+id/dd_gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/shape_spinner"
+                            android:padding="7dp"
+                            android:textSize="8pt"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+
+                        <TextView
+                            android:id="@+id/textView53"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Provinsi" />
+
+                        <Spinner
+                            android:id="@+id/profile_patient_edit_spinner_provinsi"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/shape_spinner"
+                            android:padding="7dp"
+                            android:textSize="8pt"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/dd_gender" />
+
+                        <TextView
+                            android:id="@+id/textView54"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Kota" />
+
+                        <Spinner
+                            android:id="@+id/profile_patient_edit_spinner_kota"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/shape_spinner"
+                            android:padding="7dp"
+                            android:textSize="8pt"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_provinsi" />
+
+                        <TextView
+                            android:id="@+id/textView55"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Kecamatan" />
+
+                        <Spinner
+                            android:id="@+id/profile_patient_edit_spinner_kecamatan"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/shape_spinner"
+                            android:padding="7dp"
+                            android:textSize="8pt"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kota" />
+
+                        <TextView
+                            android:id="@+id/textView62"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="Kelurahan" />
+
+                        <Spinner
+                            android:id="@+id/profile_patient_edit_spinner_kelurahan"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/shape_spinner"
+                            android:padding="7dp"
+                            android:textSize="8pt"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kecamatan" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kelurahan"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:background="@drawable/shape_rectangle_rounded_gray"
+                                android:hint="Alamat Jalan"
+                                android:singleLine="true"
+                                android:text="@={vm.address_street}" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_patient_edit_spinner_kelurahan"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:background="@drawable/shape_rectangle_rounded_gray"
+                                android:hint="Kode Pos"
+                                android:digits="0123456789"
+                                android:singleLine="true"
+                                android:text="@={vm.post_code}" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/buttonUpdateUsername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:padding="16dp"
+                            android:text="Update Username"
+                            app:layout_constraintBottom_toTopOf="@+id/textView3"
+                            app:layout_constraintEnd_toEndOf="@+id/cardView"
+                            app:layout_constraintStart_toStartOf="@+id/cardView" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/buttonUpdatePassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:padding="16dp"
+                            android:text="Update Password"
+                            app:layout_constraintBottom_toTopOf="@+id/textView3"
+                            app:layout_constraintEnd_toEndOf="@+id/cardView"
+                            app:layout_constraintStart_toStartOf="@+id/cardView" />
+
+                    </LinearLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:onClick="@{() -> vm.attemptEditProfile()}"
+                        android:background="@drawable/ic_save_data"
+                        app:layout_constraintRight_toRightOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>-->
+
+</layout>

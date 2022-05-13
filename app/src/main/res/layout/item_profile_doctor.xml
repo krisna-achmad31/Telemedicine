@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <variable
+            name="profileDoctor"
+            type="com.telemedicine.indihealth.model.ProfileDoctor" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_consultation_doctor_civ_photo"
+                setCircleImageUrlWithBaseUrl="@{profileDoctor.foto}"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/placeholder_square"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_name"
+                style="@style/TextBody1Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_family"
+                android:singleLine="false"
+                android:text="@{profileDoctor.getName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"
+                app:layout_constraintTop_toTopOf="@id/item_consultation_doctor_civ_photo" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_poly"
+                style="@style/TextBody1Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{profileDoctor.poli}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"
+                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_name" />
+
+            <ImageView
+                android:id="@+id/iv_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/pengalaman_icon"
+                app:layout_constraintStart_toStartOf="@id/item_consultation_doctor_tv_poly"
+                app:layout_constraintTop_toBottomOf="@id/item_consultation_doctor_tv_poly" />
+
+            <TextView
+                android:id="@+id/tv_experience"
+                style="@style/TextBody3Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:minWidth="64dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{profileDoctor.getPengalaman}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_experience"
+                app:layout_constraintTop_toBottomOf="@id/item_consultation_doctor_tv_poly" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="Detail Profil"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_experience"
+                app:strokeColor="@color/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardElevation="0dp">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <androidx.constraintlayout.widget.Guideline-->
+<!--                android:id="@+id/guideline3"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                app:layout_constraintGuide_percent="0.35" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="16dp"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginLeft="8dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:srcCompat="@drawable/shape_circle_blue" />-->
+
+<!--            <View-->
+<!--                android:id="@+id/item_consultation_doctor_divider_2"-->
+<!--                android:layout_width="1dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:background="@color/colorPrimaryDark"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/imageView"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/imageView" />-->
+
+<!--            <View-->
+<!--                android:id="@+id/divider5"-->
+<!--                android:layout_width="1dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:background="@color/colorPrimaryDark"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/imageView"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/imageView"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/item_consultation_doctor_civ_photo"-->
+<!--                setCircleImageUrlWithBaseUrl="@{profileDoctor.foto}"-->
+<!--                android:layout_width="90dp"-->
+<!--                android:layout_height="90dp"-->
+<!--                android:layout_marginLeft="25dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:src="@drawable/placeholder_square"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/imageView"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:ignore="MissingConstraints" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/item_consultation_doctor_tv_name"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="21dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:singleLine="false"-->
+<!--                android:text="@{profileDoctor.getName}"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/item_consultation_doctor_tv_poly"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="21dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:singleLine="false"-->
+<!--                android:text="@{profileDoctor.poli}"-->
+<!--                android:textColor="@color/colorPrimaryDark"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_name" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView14"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="21dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:text="Pengalaman : "-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_poly" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/item_consultation_doctor_tv_price"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="2dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:text="@{profileDoctor.getPengalaman}"-->
+<!--                android:textColor="@color/colorPrimaryDark"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView14"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_poly" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView15"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="21dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:text="No STR : "-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/divider4"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textView14" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/item_consultation_doctor_tv_time"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="2dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:text="@{profileDoctor.str}"-->
+<!--                android:textColor="@color/colorPrimaryDark"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toTopOf="@+id/divider4"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/textView15"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_price" />-->
+
+<!--            <View-->
+<!--                android:id="@+id/divider4"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:background="?android:attr/listDivider"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+</layout>

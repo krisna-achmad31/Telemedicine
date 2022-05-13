@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/layout_main_menu">
+
+        <action
+            android:id="@+id/action_mainFragment_to_consultationRegistrationFragment"
+            app:destination="@id/consultationRegistrationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_consultationPaymentFragment"
+            app:destination="@id/consultationPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_consultationScheduleFragment"
+            app:destination="@id/consultationScheduleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_in"
+            app:popUpTo="@id/navigation_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileShowFragment"
+            app:destination="@id/profileShowFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileDoctorFragment"
+            app:destination="@id/profileDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_queueFragment"
+            app:destination="@id/queueFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_scheduleDoctorFragment"
+            app:destination="@id/scheduleDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_historyPaymentFragment"
+            app:destination="@id/historyPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_recipeDoctorFragment"
+            app:destination="@id/recipeDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_medicalRecordsFragment"
+            app:destination="@id/medicalRecordsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_consultationAssessmentListFragment"
+            app:destination="@id/consultationAssessmentListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationRegistrationFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.registration.ConsultationRegistrationFragment"
+        android:label="ConsultationRegistrationFragment"
+        tools:layout="@layout/layout_consultation_registration">
+        <action
+            android:id="@+id/action_consultationRegistrationFragment_to_consultationPaymentFragment"
+            app:destination="@id/consultationPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/consultationRegistrationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_consultationRegistrationFragment_to_consultationRegistrationConfirmationFragment"
+            app:destination="@id/consultationRegistrationConfirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationPaymentFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.payment.ConsultationPaymentFragment"
+        android:label="ConsultationPaymentFragment"
+        tools:layout="@layout/layout_consultation_payment">
+        <action
+            android:id="@+id/action_consultationPaymentFragment_to_consultationPaymentDetailFragment"
+            app:destination="@id/consultationPaymentDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_consultationPaymentFragment_to_consultationRegistrationFragment"
+            app:destination="@id/consultationRegistrationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment" />
+        <action
+            android:id="@+id/action_consultationPaymentFragment_to_paymentConfirmationFragment"
+            app:destination="@id/paymentConfirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/consultationPaymentDetailFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.payment.detail.ConsultationPaymentDetailFragment"
+        android:label="ConsultationPaymentDetailFragment"
+        tools:layout="@layout/layout_consultation_payment_detail">
+        <argument
+            android:name="payment"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Payment"
+            app:nullable="true" />
+        <argument
+            android:name="paymentMethod"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_consultationPaymentDetailFragment_to_consultationPaymentFragment"
+            app:destination="@id/consultationPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"/>
+        <argument
+            android:name="paymentId"
+            app:argType="com.telemedicine.indihealth.model.ListPaymetnMethod"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationAssessmentFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.assessment.detail.ConsultationAssessmentFragment"
+        android:label="ConsultationAssessmentFragment"
+        tools:layout="@layout/layout_consultation_assessment">
+
+        <argument
+            android:name="idJadwalKonsultasi"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/consultationScheduleFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.schedule.ConsultationScheduleFragment"
+        android:label="ConsultationScheduleFragment"
+        tools:layout="@layout/layout_consultation_schedule">
+        <action
+            android:id="@+id/action_consultationScheduleFragment_to_consultationRegistrationFragment"
+            app:destination="@id/consultationRegistrationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/consultationScheduleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainDoctorFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.main.MainDoctorFragment"
+        android:label="MainDoctorFragment"
+        tools:layout="@layout/layout_main_doctor">
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@id/navigation_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_consultationScheduleDoctorFragment"
+            app:destination="@id/consultationScheduleDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_doctorProfileShowFragment"
+            app:destination="@id/doctorProfileShowFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_doctorScheduleFragment"
+            app:destination="@id/doctorScheduleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_doctorAssesmentPatientFragment"
+            app:destination="@id/doctorAssesmentPatientFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_doctorMedicalRecordsFragment"
+            app:destination="@id/doctorMedicalRecordsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainDoctorFragment_to_doctorHistoryLogFragment"
+            app:destination="@id/doctorHistoryLogFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationScheduleDoctorFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.consultation.schedule.ConsultationScheduleDoctorFragment"
+        android:label="ConsultationScheduleDoctorFragment"
+        tools:layout="@layout/layout_consultation_schedule_doctor">
+        <action
+            android:id="@+id/action_consultationScheduleDoctorFragment_to_consultationCallFragment"
+            app:destination="@id/consultationCallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.news.NewsFragment"
+        android:label="NewsFragment"
+        tools:layout="@layout/layout_news_detail">
+        <argument
+            android:name="news"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.News"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationCallFragment"
+        android:name="com.telemedicine.indihealth.ui.activity.doctor.ConsultationCallFragment"
+        android:label="ConsultationCallFragment"
+        tools:layout="@layout/layout_consultation_call_video">
+        <argument
+            android:name="scheduleDoctorConsultation"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.ScheduleDoctorConsultation"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorProfileShowFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.profile.show.DoctorProfileShowFragment"
+        android:label="DoctorProfileShowFragment"
+        tools:layout="@layout/layout_doctor_profile_show" />
+    <fragment
+        android:id="@+id/doctorProfileEditFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.profile.edit.DoctorProfileEditFragment"
+        android:label="DoctorProfileEditFragment"
+        tools:layout="@layout/layout_doctor_profile_edit" />
+    <fragment
+        android:id="@+id/doctorScheduleFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.schedule.DoctorScheduleFragment"
+        android:label="DoctorScheduleFragment"
+        tools:layout="@layout/layout_doctor_schedule" />
+    <fragment
+        android:id="@+id/doctorAssesmentPatientFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.assesment.DoctorAssesmentPatientFragment"
+        android:label="DoctorAssesmentPatientFragment"
+        tools:layout="@layout/layout_doctor_assesment_patient" />
+    <fragment
+        android:id="@+id/doctorMedicalRecordsFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.records.DoctorMedicalRecordsFragment"
+        android:label="DoctorMedicalRecordsFragment"
+        tools:layout="@layout/layout_doctor_medical_records">
+        <action
+            android:id="@+id/action_doctorMedicalRecordsFragment_to_doctorMedicalRecordsDetailFragment"
+            app:destination="@id/doctorMedicalRecordsDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/doctorMedicalRecordsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorMedicalRecordsDetailFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.records.detail.DoctorMedicalRecordsDetailFragment"
+        android:label="DoctorMedicalRecordsDetailFragment"
+        tools:layout="@layout/layout_doctor_medical_records_detail">
+        <argument
+            android:name="medicalRecords"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.MedicalRecords"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_doctorMedicalRecordsDetailFragment_to_doctorMedicalRecordsFragment"
+            app:destination="@id/doctorMedicalRecordsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/doctorMedicalRecordsDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/doctorHistoryLogFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.history.DoctorHistoryLogFragment"
+        android:label="DoctorHistoryLogFragment"
+        tools:layout="@layout/layout_doctor_history_log" />
+    <fragment
+        android:id="@+id/profileShowFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.patient.show.ProfileShowFragment"
+        android:label="ProfileShowFragment"
+        tools:layout="@layout/layout_profile_patient_show">
+        <action
+            android:id="@+id/action_profileShowFragment_to_profileEditFragment"
+            app:destination="@id/profileEditFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_profileShowFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/loginFragment2"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.patient.edit.ProfileEditFragment"
+        android:label="ProfileEditFragment"
+        tools:layout="@layout/layout_profile_patient_edit">
+        <action
+            android:id="@+id/action_profileEditFragment_to_updateUsernameFragment"
+            app:destination="@id/updateUsernameFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_profileEditFragment_to_updatePasswordFragment"
+            app:destination="@id/updatePasswordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/profileDoctorFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.doctor.ProfileDoctorFragment"
+        android:label="ProfileDoctorFragment"
+        tools:layout="@layout/layout_profile_doctor">
+        <action
+            android:id="@+id/action_profileDoctorFragment_to_profileDoctorDetailFragment"
+            app:destination="@id/profileDoctorDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileDoctorDetailFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.doctor.detail.ProfileDoctorDetailFragment"
+        android:label="ProfileDoctorDetailFragment"
+        tools:layout="@layout/layout_profile_doctor_detail">
+        <argument
+            android:name="profileDoctor"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.ProfileDoctor"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/queueFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.queue.QueueFragment"
+        android:label="QueueFragment"
+        tools:layout="@layout/layout_queue" />
+    <fragment
+        android:id="@+id/scheduleDoctorFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.schedule.ScheduleDoctorFragment"
+        android:label="ScheduleDoctorFragment"
+        tools:layout="@layout/layout_schedule_doctor" />
+    <fragment
+        android:id="@+id/historyPaymentFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.history.HistoryPaymentFragment"
+        android:label="HistoryPaymentFragment"
+        tools:layout="@layout/layout_history_payment">
+        <action
+            android:id="@+id/action_historyPaymentFragment_to_consultationRegistrationFragment"
+            app:destination="@id/consultationRegistrationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_historyPaymentFragment_to_consultationRegistrationConfirmationFragment"
+            app:destination="@id/consultationRegistrationConfirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDoctorFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.recipe.RecipeDoctorFragment"
+        android:label="RecipeDoctorFragment"
+        tools:layout="@layout/layout_recipe_doctor">
+        <action
+            android:id="@+id/action_recipeDoctorFragment_to_recipeDoctorDetailFragment"
+            app:destination="@id/recipeDoctorDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_recipeDoctorFragment_to_paymentConfirmationFragment"
+            app:destination="@id/paymentConfirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeDoctorDetailFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.recipe.detail.RecipeDoctorDetailFragment"
+        android:label="RecipeDoctorDetailFragment"
+        tools:layout="@layout/layout_recipe_doctor_detail">
+
+        <argument
+            android:name="recipe"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Recipe"
+            app:nullable="true" />
+
+        <argument
+            android:name="paymentMethod"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_recipeDoctorDetailFragment_to_recipeDoctorFragment"
+            app:destination="@id/recipeDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/mainFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/medicalRecordsFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.records.MedicalRecordsFragment"
+        android:label="MedicalRecordsFragment"
+        tools:layout="@layout/layout_medical_records">
+        <action
+            android:id="@+id/action_medicalRecordsFragment_to_medicalRecordsDetailFragment"
+            app:destination="@id/medicalRecordsDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/layout_notification">
+        <argument
+            android:name="notification"
+            app:argType="com.telemedicine.indihealth.model.Notification[]"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_recipeDoctorFragment"
+            app:destination="@id/recipeDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_historyPaymentFragment"
+            app:destination="@id/historyPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_ConsultationScheduleFragment"
+            app:destination="@id/consultationScheduleFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_consultationScheduleDoctorFragment"
+            app:destination="@id/consultationScheduleDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_consultationPaymentFragment"
+            app:destination="@id/consultationPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_notificationFragment_to_consultationAssessmentFragment"
+            app:destination="@id/consultationAssessmentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/consultationAssessmentListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/medicalRecordsDetailFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.records.detail.MedicalRecordsDetailFragment"
+        android:label="MedicalRecordsDetailFragment"
+        tools:layout="@layout/layout_medical_records_detail">
+
+        <argument
+            android:name="medicalRecords"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.MedicalRecords"
+            app:nullable="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/doctorContainerFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.doctor.container.DoctorContainerFragment"
+        android:label="DoctorContainerFragment"
+        tools:layout="@layout/layout_doctor_container">
+
+        <action
+            android:id="@+id/action_mainFragment_to_profileDoctorFragment"
+            app:destination="@id/profileDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_scheduleDoctorFragment"
+            app:destination="@id/scheduleDoctorFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateUsernameFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.updateusername.UpdateUsernameFragment"
+        android:label="UpdateUsernameFragment"
+        tools:layout="@layout/layout_update_username" />
+
+    <fragment
+        android:id="@+id/updatePasswordFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.profile.updatepassword.UpdatePasswordFragment"
+        android:label="UpdatePasswordFragment"
+        tools:layout="@layout/layout_update_password" />
+
+    <fragment
+        android:id="@+id/consultationAssessmentListFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.assessment.list.ConsultationAssessmentListFragment"
+        android:label="ConsultationAssessmentListFragment"
+        tools:layout="@layout/layout_consultation_assessment_list">
+
+        <action
+            android:id="@+id/action_consultationAssessmentListFragment_to_consultationAssessmentFragment"
+            app:destination="@id/consultationAssessmentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.telemedicine.indihealth.ui.fragment.login.LoginFragment"
+        android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/consultationRegistrationConfirmationFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.registration.ConsultationRegistrationConfirmationFragment"
+        android:label="ConsultationRegistrationConfirmationFragment"
+        tools:layout="@layout/layout_consultation_registration_confirmation">
+        <argument
+            android:name="idJadwal"
+            app:argType="integer" />
+        <argument
+            android:name="idDokter"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_consultationRegistrationConfirmationFragment_to_consultationPaymentFragment"
+            app:destination="@id/consultationPaymentFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/consultationRegistrationFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_consultationRegistrationConfirmationFragment_to_tocFragment"
+            app:destination="@id/tocFragment" />
+        <argument
+            android:name="isAccepted"
+            app:argType="boolean"
+            android:defaultValue="false" />
+
+        <!--        <action-->
+<!--            android:id="@+id/action_consultationRegistrationConfirmationFragment_to_consultationPaymentFragment"-->
+<!--            app:destination="@id/consultationPaymentFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+<!--            app:popUpTo="@id/consultationRegistrationFragment"-->
+<!--            app:popUpToInclusive="true" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentConfirmationFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.payment.PaymentConfirmationFragment"
+        android:label="PaymentConfirmationFragment"
+        tools:layout="@layout/layout_payment_confirmation">
+
+        <argument
+            android:name="transactionType"
+            app:argType="string" />
+
+        <argument
+            android:name="payment"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Payment"
+            app:nullable="true" />
+
+        <argument
+            android:name="recipe"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Recipe"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_paymentConfirmationFragment_to_consultationPaymentConfirmationFragment"
+            app:destination="@id/consultationPaymentConfirmationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_paymentConfirmationFragment_to_recipeDoctorDetailFragment"
+            app:destination="@id/recipeDoctorDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/consultationPaymentConfirmationFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.consultation.payment.confirmation.ConsultationPaymentConfirmation"
+        android:label="ConsultationPaymentConfirmation"
+        tools:layout="@layout/layout_consultation_payment_confirmation">
+
+        <argument
+            android:name="payment"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Payment"
+            app:nullable="true" />
+        <argument
+            android:name="paymentMethod"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="paymentId"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.ListPaymetnMethod"
+            app:nullable="true" />
+
+        <argument
+            android:name="transactionType"
+            app:argType="string" />
+
+        <argument
+            android:name="recipe"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.Recipe"
+            app:nullable="true" />
+
+        <argument
+            android:name="paymentResult"
+            android:defaultValue="@null"
+            app:argType="com.telemedicine.indihealth.model.PaymentResult"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_consultationPaymentConfirmationFragment_to_consultationPaymentDetailFragment"
+            app:destination="@id/consultationPaymentDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/tocFragment"
+        android:name="com.telemedicine.indihealth.ui.fragment.toc.TocFragment"
+        android:label="TocFragment" >
+        <argument
+            android:name="idJadwal"
+            app:argType="integer" />
+        <argument
+            android:name="idDokter"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_tocFragment_to_consultationRegistrationConfirmationFragment"
+            app:destination="@id/consultationRegistrationConfirmationFragment"
+            app:popUpTo="@id/consultationRegistrationConfirmationFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+</navigation>

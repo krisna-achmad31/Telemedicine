@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.doctor.profile.show.DoctorProfileShowViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_show_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Profil"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/splashScreenBackgroundColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_show_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:background="@color/splashScreenBackgroundColor">
+
+                <ImageView
+                    android:id="@+id/iv_background_primary_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="156dp"
+                    android:background="@color/colorPrimaryLight"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bottom_rounded_white_bg"
+                    android:orientation="vertical"
+                    android:paddingTop="80dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/iv_background_primary_light">
+
+                    <TextView
+                        android:id="@+id/patient_name"
+                        style="@style/TextHeader1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getName}"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_poly"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.poli}"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_medical_record"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No STR:"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/medical_record"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.str}"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/dotted"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/shape_dotted_grey" />
+
+                    <TextView
+                        android:id="@+id/tv_experience_label"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Pengalaman:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_experience"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getPengalaman}" />
+
+                    <TextView
+                        android:id="@+id/text_telephone"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Nomor Telepon:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/telephone"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.telp}" />
+
+                    <TextView
+                        android:id="@+id/text_email"
+                        style="@style/TextBody1Style"
+                        android:fontFamily="@font/inter_family"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Email:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.email}" />
+
+                    <TextView
+                        android:id="@+id/text_birthdate"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Tempat, Tanggal Lahir:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/birthdate"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getTempatTanggalLahir}" />
+
+                    <TextView
+                        android:id="@+id/text_gender"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Jenis Kelamin:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.jenis_kelamin}" />
+
+                    <TextView
+                        android:id="@+id/text_address"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Alamat:"
+                        android:textStyle="bold"  />
+
+                    <TextView
+                        android:id="@+id/address"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getAlamat}" />
+
+                </LinearLayout>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/photo_profile"
+                    setCircleImageUrlWithBaseUrl="@{vm.profile.foto}"
+                    android:layout_width="156dp"
+                    android:layout_height="156dp"
+                    android:layout_marginTop="78dp"
+                    android:src="@drawable/placeholder_square"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_show_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Profil Dokter"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="10dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="40dp">
+
+                    <ImageView
+                        android:id="@+id/edit_profile"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@drawable/ic_edit"
+                        tools:ignore="MissingConstraints"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/photo_profile"
+                        setCircleImageUrlWithBaseUrl="@{vm.profile.foto}"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/placeholder_square"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/patient_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@{vm.profile.name}"
+                        android:textSize="11pt"
+                        android:textColor="@color/black"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/photo_profile"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_patient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dokter"
+                        android:textSize="8pt"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/patient_name"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_medical_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STR :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_patient"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/medical_record"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.str}"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_medical_record"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_poly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spesialis/Poli :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/medical_record"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/poly"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.poli}"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_poly"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengalaman :"
+                        android:textSize="10pt"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/poly"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.getPengalaman}"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_experience"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/dotted"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/shape_dotted_grey"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/experience"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_telephone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Telepon :"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dotted"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/telephone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.telp}"
+                        android:textSize="8pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_telephone"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email :"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/telephone"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.email}"
+                        android:textSize="8pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_email"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_birthdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tempat/Tanggal Lahir :"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/birthdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.getTempatTanggalLahir}"
+                        android:textSize="8pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_birthdate"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jenis Kelamin :"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/birthdate"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.jenis_kelamin}"
+                        android:textSize="8pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_gender"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/text_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat :"
+                        android:textSize="9pt"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/gender"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.profile.getAlamat}"
+                        android:textSize="8pt"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_address"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>-->
+
+</layout>

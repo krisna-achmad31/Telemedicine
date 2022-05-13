@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.consultation.schedule.ConsultationScheduleViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.telemedicine.indihealth.ui.fragment.consultation.schedule.ConsultationScheduleAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/consultation_schedule_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Jadwal Konsultasi Dokter"
+            app:titleTextColor="@color/white" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/consultation_schedule_mcv_no_data"
+            setVisibility="@{vm.scheduleList.empty}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:id="@+id/consultation_payment_ll_no_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="80dp"
+                android:paddingBottom="80dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_no_data"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="16dp"
+                    android:text="Tidak Ada Data Jadwal Konsultasi Yang Ditemukan"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="16dp"
+                    android:text="Daftar Konsultasi Dokter"
+                    app:layout_constraintBottom_toTopOf="@+id/textView3"
+                    app:layout_constraintEnd_toEndOf="@+id/cardView"
+                    app:layout_constraintStart_toStartOf="@+id/cardView" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            rvAdapter="@{adapter}"
+            setAdapterConsultationScheduleList="@{vm.scheduleList}"
+            setVisibility="@{!vm.scheduleList.empty}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_consultation_schedule" />
+    </LinearLayout>
+</layout>

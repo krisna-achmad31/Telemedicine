@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.consultation.registration.ConsultationRegistrationViewModel" />
+        <variable
+            name="adapter"
+            type="com.telemedicine.indihealth.ui.fragment.consultation.registration.ConsultationRegistrationAdapter" />
+    </data>
+
+
+    <LinearLayout
+        android:background="@color/splashScreenBackgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/consultation_registration_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="@drawable/back_icon"
+            app:subtitleTextColor="@color/white"
+            app:collapseIcon="@drawable/back_icon"
+            app:title="Dokter"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/day"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@drawable/shape_spinner"
+                    android:text="@{vm.dayText}"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="24dp" />
+
+                <TextView
+                    android:id="@+id/poli"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/shape_spinner"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:text="@{vm.polyText}"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="24dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/consultation_registration_rv_consultation_list"
+                    rvAdapter="@{adapter}"
+                    setAdapterConsultationDoctorList="@{vm.consultationDoctorList}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_consultation_registration_doctor" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/consultation_registration_mcv_no_data"
+                    setVisibility="@{vm.isConsultationDoctorListExist()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="8dp"
+                    android:layout_margin="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/consultation_registration_ll_no_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:paddingTop="80dp"
+                        android:paddingBottom="80dp">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_no_data"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Tidak Ada Data Assessment yang Ditemukan"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="8dp"
+                            android:text="Sentuh Disini Untuk Memuat Ulang"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

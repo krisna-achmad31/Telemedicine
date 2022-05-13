@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Healthyme</string>
+    <string name="default_notification_channel_id">1</string>
+    <string name="call_notification_channel_id">2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="lupa_password"><font color='#190B0E'>Lupa kata sandi? </font><font color='#59A799'>Klik untuk bantuan.</font></string>
+    <string name="belum_memiliki_akun_klik_untuk_daftar"><font color='#190B0E'>Belum memiliki akun?</font> <font color='#59A799'>Klik untuk daftar.</font></string>
+    <string name="sudah_memiliki_akun"><font color='#190B0E'>Sudah memiliki akun?</font> <font color='#59A799'>Klik untuk masuk</font></string>
+    <string name="mulai">Mulai</string>
+    <string name="lanjutkan">Lanjut</string>
+    <string name="tnc">Dengan masuk atau mendaftar, kamu menyetujui <br /><font color='#59A799'>Ketentuan Layanan</font> dan <font color='#59A799'>Kebijakan Privasi.</font></string>
+    <string name="membantu_anda"> Untuk Indonesia.</string>
+    <string name="celcius">&#xb0;Celsius</string>
+    <string name="formatted_time">%02d:%02d</string>
+    <string name="alert_ok">alert ok</string>
+
+
+    <string-array name="dayList">
+        <item>Senin</item>
+        <item>Selasa</item>
+        <item>Rabu</item>
+        <item>Kamis</item>
+        <item>Jum\'at</item>
+        <item>Sabtu</item>
+
+    </string-array>
+</resources>

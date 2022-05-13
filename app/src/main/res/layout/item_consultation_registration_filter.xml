@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="listItems"
+            type="com.telemedicine.indihealth.model.FilterRegistrationDoctor" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_consultation_registration_filter_mcv_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="8dp"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:id="@+id/item_consultation_registration_filter_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@{listItems.name}"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.schedule.ScheduleDoctorViewModel" />
+        <variable
+            name="adapter"
+            type="com.telemedicine.indihealth.ui.fragment.schedule.ScheduleDoctorAdapter" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/schedule_doctor_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Jadwal Dokter"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/splashScreenBackgroundColor">
+
+                <Spinner
+                    android:id="@+id/poli"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/shape_spinner"
+                    android:padding="8dp" />
+<!--
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="0dp"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    app:cardElevation="0dp"
+                    app:contentPaddingBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            setVisibility="@{vm.isPolyListExist}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="8dp"
+                            android:text="Cari berdasarkan poli"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/consultation_registration_rv_filter_poly_list"
+                            rvAdapter="@{adapterFilterPoly}"
+                            setAdapterScheduleDoctorFilterPolyList="@{vm.polyList}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:paddingLeft="8dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:spanCount="2"
+                            tools:listitem="@layout/item_consultation_registration_filter" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+-->
+
+<!--                <Spinner-->
+<!--                    android:id="@+id/poli"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/shape_spinner"-->
+<!--                    android:padding="7dp"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_marginTop="10dp" />-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/consultation_registration_rv_consultation_list"
+                    rvAdapter="@{adapter}"
+                    setAdapterScheduleDoctorList="@{vm.consultationDoctorList}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_schedule_doctor" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/schedule_doctor_mcv_no_data"
+                    setVisibility="@{vm.isConsultationDoctorListExist()}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="8dp"
+                    android:layout_margin="8dp">
+
+                    <LinearLayout
+                        android:id="@+id/consultation_registration_ll_no_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:paddingTop="80dp"
+                        android:paddingBottom="80dp">
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_no_data"
+                            tools:ignore="VectorDrawableCompat" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="16dp"
+                            android:text="Tidak Ada Data Jadwal Dokter Yang Ditemukan"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

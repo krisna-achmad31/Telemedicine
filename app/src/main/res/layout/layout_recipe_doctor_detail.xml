@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recipe"
+            type="com.telemedicine.indihealth.model.Recipe" />
+
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.recipe.detail.RecipeDoctorDetailViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.telemedicine.indihealth.ui.fragment.recipe.detail.RecipeDoctorDetailAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_doctor_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Pembayaran Resep Dokter"
+            app:titleTextColor="@color/white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="8dp"
+                        app:contentPadding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView1"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tanggal Konsultasi :" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{recipe.tanggal_konsultasi}"
+                                android:textColor="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Pemeriksa :" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{recipe.getNameDoctor}"
+                                android:textColor="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/textViewHargaObat"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Harga Obat :" />
+
+                            <TextView
+                                android:id="@+id/tvHargaObat"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{recipe.getHargaObat}"
+                                android:textColor="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/textViewPengiriman"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Biaya Pengiriman :" />
+
+                            <TextView
+                                android:id="@+id/tvPengiriman"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{recipe.getBiayaPengiriman}"
+                                android:textColor="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/tv_payment_method_label"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Metode Pembayaran :"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/tv_payment_method"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorPrimary"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Total Harga :" />
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                style="@style/TextBody1Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{recipe.getTotalPrice}"
+                                android:textColor="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                style="@style/TextBody2Style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="Resep :" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recipe_registration_rv_consultation_list"
+                                rvAdapter="@{adapter}"
+                                setAdapterRecipeDoctorDetailList="@{vm.recipeList}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"
+                                android:visibility="visible"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/item_recipe_doctor_detail" />
+
+                            <!--<TextView
+                                android:id="@+id/textView_pay"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="Metode Pembayaran"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/recipe_spinner_payment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:entries="@array/methodpayment" />-->
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/recipe_payment_detail_owlexa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="8dp"
+                        app:contentPadding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView39"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nama Lengkap"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/textView40"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:inputType="textPersonName"
+                                android:text="@={vm.fullName}" />
+
+                            <TextView
+                                android:id="@+id/textView41"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="No Kartu"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/et_no_kartu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:inputType="number"
+                                android:text="@={vm.cardNumber}" />
+
+                            <TextView
+                                android:id="@+id/textView42"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tanggal Lahir"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/et_birthdate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:drawableEnd="@drawable/ic_calendar"
+                                android:hint="(Klik Disini)"
+                                android:inputType="none"
+                                android:singleLine="true"
+                                android:text="@={vm.birthDate}" />
+
+                            <TextView
+                                android:id="@+id/textView44"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="OTP"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_no_otp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:afterTextChanged="@{vm::afterTextChanged}"
+                                android:inputType="number"
+                                android:text="@={vm.otp}" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:clickable="@{vm.isFieldsFilledOtp()}"
+                                android:focusable="true"
+                                android:enabled="@{vm.isFieldsFilledOtp()}"
+                                android:onClick="@{() -> vm.postPaymentOwlexagenerateOtp()}"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/recipe_payment_detail_owlexa_iv_photo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_baseline_send_active" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sent OTP"
+                                    android:textColor="@color/colorPrimary" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/recipe_payment_detail_mcv_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        app:cardCornerRadius="8dp">
+
+                        <ImageView
+                            android:id="@+id/recipe_payment_detail_iv_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="300dp"
+                            android:scaleType="fitCenter"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/receip_dummy" />
+
+                        <LinearLayout
+                            android:id="@+id/recipe_payment_detail_ll_pick_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="visible">
+
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                app:srcCompat="@drawable/camera_icon" />
+
+                            <TextView
+                                android:id="@+id/textView27"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="16dp"
+                                android:gravity="center"
+                                android:text="Sentuh disini untuk mengunggah struk pembayaran"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <Button
+                        android:id="@+id/recipe_payment_detail_btn_confirm"
+                        style="@style/CommonButtonStyle"
+                        android:enabled="false"
+                        android:onClick="@{() -> vm.postPayment()}"
+                        android:text="Upload Bukti Pembayaran" />
+
+                    <Button
+                        android:id="@+id/recipe_payment_detail_btn_send"
+                        style="@style/CommonButtonStyle"
+                        android:clickable="@{vm.isFieldsFilled()}"
+                        android:enabled="@{vm.isFieldsFilled()}"
+                        android:onClick="@{() -> vm.postPaymentOwlexaVerificationObat()}"
+                        android:text="Kirim" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

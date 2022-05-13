@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.profile.patient.show.ProfileShowViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/profile_show_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Profil"
+            app:titleTextColor="@color/white" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/splashScreenBackgroundColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_show_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/splashScreenBackgroundColor">
+
+                <ImageView
+                    android:id="@+id/iv_background_primary_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="156dp"
+                    android:background="@color/colorPrimaryLight"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bottom_rounded_white_bg"
+                    android:orientation="vertical"
+                    android:paddingTop="80dp"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/iv_background_primary_light">
+
+                    <TextView
+                        android:id="@+id/patient_name"
+                        style="@style/TextHeader1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getName}"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/text_medical_record"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No Rekam Medis"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/medical_record"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.no_medrec}"
+                        android:textAlignment="center" />
+
+                    <ImageView
+                        android:id="@+id/dotted"
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/shape_dotted_grey" />
+                    <TextView
+                        android:id="@+id/text_nik"
+                        style="@style/TextBody2Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No NIK"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_nik"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/nik"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.nik}" />
+
+                    <TextView
+                        android:id="@+id/text_telephone"
+                        style="@style/TextBody2Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No Telepon"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_telephone"
+                        app:drawableTint="@color/textLabel" />
+
+                    <TextView
+                        android:id="@+id/telephone"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.telp}" />
+
+                    <TextView
+                        android:id="@+id/text_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Email"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_email"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/email"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.email}" />
+                    <TextView
+                        android:id="@+id/text_birthdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Tempat, Tanggal Lahir"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_calendar"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/birthdate"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getTempatTanggalLahir}" />
+
+                    <TextView
+                        android:id="@+id/text_gender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Jenis Kelamin"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_gender"
+                        app:drawableTint="@color/textLabel" />
+
+                    <TextView
+                        android:id="@+id/gender"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.jenis_kelamin}" />
+
+                    <TextView
+                        android:id="@+id/text_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Alamat"
+                        android:gravity="center_vertical"
+                        app:drawableTint="@color/textLabel"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_location" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.getAlamat}" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/shape_dotted_grey"
+                        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:id="@+id/text_ibu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Nama Ibu"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_baseline_family_restroom_24"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/namaIbu"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.nama_ibu}" />
+                    <TextView
+                        android:id="@+id/text_ayah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Nama Ayah"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_baseline_family_restroom_24"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/namaAyah"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.nama_ayah}" />
+                    <TextView
+                        android:id="@+id/text_telephone_ortu"
+                        style="@style/TextBody2Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No Telepon"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_telephone"
+                        app:drawableTint="@color/textLabel" />
+
+                    <TextView
+                        android:id="@+id/telephone_ortu"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.telp_pj}" />
+
+                    <TextView
+                        android:id="@+id/text_penanggungjawab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Penanggung Jawab"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/penanggungjawab"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.nama_pj}" />
+                    <TextView
+                        android:id="@+id/text_hubunganpj"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawablePadding="8dp"
+                        android:text="Hubungan Penanggung Jawab"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textLabel"
+                        app:drawableStartCompat="@drawable/ic_baseline_star_24"
+                        app:drawableTint="@color/textLabel" />
+                    <TextView
+                        android:id="@+id/hubunganpenanggungjawab"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="46dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/inter_family"
+                        android:text="@{vm.profile.hubungan_pj}" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/text_address_ortu"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="16dp"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:drawablePadding="8dp"-->
+<!--                        android:text="Alamat"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        app:drawableTint="@color/textLabel"-->
+<!--                        android:textColor="@color/textLabel"-->
+<!--                        app:drawableStartCompat="@drawable/ic_location" />-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/alamat_pj"-->
+<!--                        style="@style/TextBody1Style"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="46dp"-->
+<!--                        android:layout_marginEnd="16dp"-->
+<!--                        android:fontFamily="@font/inter_family"-->
+<!--                        android:text="@{vm.profile.getAlamatPj}" />-->
+
+
+                </LinearLayout>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/photo_profile"
+                    setCircleImageUrlWithBaseUrl="@{vm.profile.foto}"
+                    android:layout_width="156dp"
+                    android:layout_height="156dp"
+                    android:layout_marginTop="78dp"
+                    android:src="@drawable/placeholder_square"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_margin="16dp"
+                    android:drawableEnd="@drawable/signout_icon"
+                    android:text="Keluar"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

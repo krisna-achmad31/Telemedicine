@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data
+        android:layout_width="8dp"
+        android:layout_height="15dp">
+
+        <variable
+            name="payment"
+            type="com.telemedicine.indihealth.model.Payment" />
+
+        <variable
+            name="paymentId"
+            type="com.telemedicine.indihealth.model.ListPaymetnMethod" />
+
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.consultation.payment.detail.ConsultationPaymentDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/consultation_payment_detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Pembayaran"
+            app:titleTextColor="@color/white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/splashScreenBackgroundColor"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/consultation_payment_detail_iv_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"
+                    app:srcCompat="@drawable/receip_dummy" />
+
+                <LinearLayout
+                    android:id="@+id/consultation_payment_detail_ll_pick_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pressed_state"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:src="@drawable/camera_icon"
+                        android:visibility="visible" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tap icon camera untuk upload atau mengambil gambar"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/dotted"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/shape_dotted_grey" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Nomor Registrasi"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{payment.id}" />
+
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Nama Dokter"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{payment.nama_dokter}" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Total Tagihan"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{payment.getTotalPembayaran}" />
+
+                <TextView
+                    android:id="@+id/tv_payment_method_label"
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Metode Pembayaran"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    android:id="@+id/tv_payment_method"
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Status"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{payment.getStatus}" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Nama Bank"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{paymentId.payment}" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="Nomor Rekening"
+                    android:textColor="@color/textLabel" />
+
+                <TextView
+                    style="@style/TextBody1Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_family"
+                    android:text="@{paymentId.no_rek}" />
+
+                <LinearLayout
+                    android:id="@+id/consultation_payment_detail_owlexa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Nama Lengkap"
+                        android:textColor="@color/textLabel" />
+
+                    <EditText
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/inter_family"
+                        android:inputType="textPersonName"
+                        android:text="@={vm.fullName}" />
+
+                    <TextView
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_family"
+                        android:text="No. Kartu"
+                        android:textColor="@color/textLabel" />
+
+                    <EditText
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/inter_family"
+                        android:inputType="number"
+                        android:text="@={vm.cardNumber}" />
+
+                    <TextView
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_family"
+                        android:text="Tanggal Lahir"
+                        android:textColor="@color/textLabel" />
+
+                    <EditText
+                        android:id="@+id/et_birthdate"
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:hint="(Klik Disini)"
+                        android:inputType="none"
+                        android:singleLine="true"
+                        android:text="@={vm.birthDate}" />
+
+                    <TextView
+                        style="@style/TextBody1Style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_family"
+                        android:text="OTP"
+                        android:textColor="@color/textLabel" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_no_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:inputType="number"
+                        android:text="@={vm.otp}" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:clickable="@{vm.isFieldsFilledOtp()}"
+                        android:enabled="@{vm.isFieldsFilledOtp()}"
+                        android:onClick="@{() -> vm.postPaymentOwlexagenerateOtp()}"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/consultation_payment_detail_owlexa_iv_photo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/ic_baseline_send_active" />
+
+                        <TextView
+                            android:id="@+id/tvOtp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Send OTP"
+                            android:textColor="@color/colorPrimary" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/consultation_payment_detail_btn_send"
+                        style="@style/CommonButtonStyle"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="0dp"
+                        android:clickable="@{vm.isFieldsFilled()}"
+                        android:enabled="@{vm.isFieldsFilled()}"
+                        android:onClick="@{() -> vm.postPaymentOwlexaVerification()}"
+                        android:text="Kirim" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/consultation_payment_detail_btn_confirm"
+                    style="@style/CommonButtonStyle"
+                    android:backgroundTint="@color/grey_400"
+                    android:enabled="false"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:onClick="@{() -> vm.postPayment()}"
+                    android:text="Upload Bukti Pembayaran"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!--
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView15"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nomor Registrasi"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView16"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.id}" />
+
+                                <TextView
+                                    android:id="@+id/textView18"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nama Dokter"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView20"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.nama_dokter}" />
+
+                                <TextView
+                                    android:id="@+id/textView28"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Poli"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView22"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.poli}" />
+
+                                <TextView
+                                    android:id="@+id/textView29"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Biaya Konsultasi"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView32"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.getBiayaKonsultasi}" />
+
+                                <TextView
+                                    android:id="@+id/textView30"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Biaya Administrasi"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView33"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.getBiayaAdministrasi}" />
+
+                                <TextView
+                                    android:id="@+id/textView25"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Tagihan"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView26"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.getTotalPembayaran}" />
+
+                                <TextView
+                                    android:id="@+id/textView34"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Status"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/textView35"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingBottom="4dp"
+                                    android:text="@{payment.getStatus}" />
+
+                                <TextView
+                                    android:id="@+id/textView36"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Metode Pembayaran"
+                                    android:textStyle="bold" />
+
+                                <Spinner
+                                    android:id="@+id/spinner_payment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:entries="@array/methodpayment" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/consultation_payment_detail_owlexa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="8dp"
+                            app:contentPadding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView39"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nama Lengkap"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/textView40"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{vm::afterTextChanged}"
+                                    android:inputType="textPersonName"
+                                    android:text="@={vm.fullName}" />
+
+                                <TextView
+                                    android:id="@+id/textView41"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="No Kartu"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/et_no_kartu"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{vm::afterTextChanged}"
+                                    android:inputType="number"
+                                    android:text="@={vm.cardNumber}" />
+
+                                <TextView
+                                    android:id="@+id/textView42"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tanggal Lahir"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/et_birthdate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{vm::afterTextChanged}"
+                                    android:drawableEnd="@drawable/ic_calendar"
+                                    android:hint="(Klik Disini)"
+                                    android:inputType="none"
+                                    android:singleLine="true"
+                                    android:text="@={vm.birthDate}" />
+
+                                <TextView
+                                    android:id="@+id/textView44"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="OTP"
+                                    android:textStyle="bold" />
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/et_no_otp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:afterTextChanged="@{vm::afterTextChanged}"
+                                    android:inputType="number"
+                                    android:text="@={vm.otp}" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:clickable="@{vm.isFieldsFilledOtp()}"
+                                    android:enabled="@{vm.isFieldsFilledOtp()}"
+                                    android:onClick="@{() -> vm.postPaymentOwlexagenerateOtp()}"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:id="@+id/consultation_payment_detail_owlexa_iv_photo"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        app:srcCompat="@drawable/ic_baseline_send_active" />
+
+                                    <TextView
+                                        android:id="@+id/tvOtp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sent OTP"
+                                        android:textColor="@color/blue_600" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/consultation_payment_detail_mcv_photo"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:visibility="gone"
+                            app:cardCornerRadius="8dp">
+
+                            <ImageView
+                                android:id="@+id/consultation_payment_detail_iv_photo"
+                                android:layout_width="match_parent"
+                                android:layout_height="300dp"
+                                android:scaleType="fitCenter"
+                                android:visibility="gone"
+                                app:srcCompat="@drawable/receip_dummy" />
+
+                            <LinearLayout
+                                android:id="@+id/consultation_payment_detail_ll_pick_photo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="160dp"
+                                    android:visibility="visible"
+                                    app:srcCompat="@android:drawable/ic_menu_camera" />
+
+                                <TextView
+                                    android:id="@+id/textView27"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Sentuh disini untuk mengunggah struk pembayaran"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <Button
+                            android:id="@+id/consultation_payment_detail_btn_confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/grey_400"
+                            android:enabled="false"
+                            android:onClick="@{() -> vm.postPayment()}"
+                            android:text="Upload Bukti Pembayaran"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/consultation_payment_detail_btn_send"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="@{vm.isFieldsFilled()}"
+                            android:enabled="@{vm.isFieldsFilled()}"
+                            android:onClick="@{() -> vm.postPaymentOwlexaVerification()}"
+                            android:text="Kirim" />
+
+                    </LinearLayout>
+                </ScrollView>
+        -->
+
+    </LinearLayout>
+</layout>

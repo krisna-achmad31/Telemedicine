@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="historyConsultation"
+            type="com.telemedicine.indihealth.model.HistoryConsultation" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="12dp"
+        android:layout_marginBottom="8dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_consultation_label"
+                style="@style/TextBody2Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Konsultasi dengan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_history_consultation_tv_status"
+                style="@style/TextBody3Style"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:minWidth="80dp"
+                android:background="@drawable/item_history_payment_bg"
+                android:singleLine="true"
+                android:text="@{historyConsultation.getStatusPembayaran}"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/item_consultation_doctor_civ_photo"
+                setImageBaseUrl="@{historyConsultation.foto_dokter}"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/placeholder_square"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_consultation_label"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_poly"
+                style="@style/TextBody1Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_family"
+                android:singleLine="false"
+                android:text="@{historyConsultation.getName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"
+                app:layout_constraintTop_toTopOf="@id/item_consultation_doctor_civ_photo" />
+
+            <TextView
+                android:id="@+id/item_history_payment_tv_poli"
+                style="@style/TextBody1Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{historyConsultation.poli}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_consultation_doctor_civ_photo"
+                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_tv_poly" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/shape_dotted_grey"
+                app:layout_constraintTop_toBottomOf="@+id/item_history_payment_tv_poli" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_time"
+                style="@style/TextBody3Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{historyConsultation.getTanggalKonsultasi}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_tv_price"
+                style="@style/TextBody3Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:text="@{historyConsultation.getBiaya}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_consultation_doctor_tv_time" />
+
+            <TextView
+                android:id="@+id/item_consultation_doctor_payment"
+                style="@style/TextBody3Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:text="@{historyConsultation.getPayment}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_consultation_doctor_tv_price" />
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/button"-->
+<!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:text="Konsultasi Ulang"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="12sp"-->
+<!--                android:visibility="gone"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/item_consultation_doctor_payment"-->
+<!--                app:strokeColor="@color/colorPrimary" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

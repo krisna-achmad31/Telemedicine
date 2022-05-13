@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="scheduleDoctorConsultation"
+            type="com.telemedicine.indihealth.model.ScheduleDoctorConsultation" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="8dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+
+                android:id="@+id/iv_patient"
+                app:cardCornerRadius="12dp"
+                android:elevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    setImageBaseUrl="@{scheduleDoctorConsultation.foto}"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_person_circle" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tv_patient_name"
+                style="@style/TextBody1Style"
+                android:layout_width="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:text="@{scheduleDoctorConsultation.nama_pasien}"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_patient"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/shape_dotted_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_patient"
+                app:layout_constraintTop_toBottomOf="@id/tv_patient_name" />
+
+            <TextView
+                android:id="@+id/tv_consultation_day_label"
+                style="@style/TextBody2Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_family"
+                android:text="Konsultasi pada hari: "
+                app:layout_constraintStart_toEndOf="@id/iv_patient"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/tv_consultation_day"
+                style="@style/TextBody2Style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/inter_family"
+                android:text="@{scheduleDoctorConsultation.getDay}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_consultation_day_label"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <TextView
+                android:id="@+id/tv_consultation_time_label"
+                style="@style/TextBody2Style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/inter_family"
+                android:text="Pukul: "
+                app:layout_constraintStart_toEndOf="@id/iv_patient"
+                app:layout_constraintTop_toBottomOf="@id/tv_consultation_day_label" />
+
+            <TextView
+                android:id="@+id/tv_consultation_time"
+                style="@style/TextBody2Style"
+                android:layout_width="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_family"
+                android:text="@{scheduleDoctorConsultation.jam}"
+                app:layout_constraintTop_toBottomOf="@id/tv_consultation_day"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_consultation_time_label"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_call"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Video Call"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/iv_patient"
+                app:strokeColor="@color/colorPrimary" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

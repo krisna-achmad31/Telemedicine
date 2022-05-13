@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.bottomsheet.diagnosis.ConsultationDiagnosisViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/diagnosis_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:navigationIcon="@drawable/ic_back_arrow_white"
+            app:title="Diagnosis"
+            app:titleTextColor="@color/white" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_rectangle_rounded_gray"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="Diagnosis "
+            android:text="@={vm.diagnosis}"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diagnosis_btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Simpan Diagnosis" />
+
+    </LinearLayout>
+</layout>

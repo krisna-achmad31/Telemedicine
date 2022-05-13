@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/indicator"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintHorizontal_bias="0.1"
+            android:layout_height="@dimen/indicator_height"
+            app:ci_drawable="@drawable/active_indicator"
+            app:ci_drawable_unselected="@drawable/inactive_indicator"
+            app:layout_constraintBottom_toBottomOf="@id/buttonNext"
+            app:layout_constraintEnd_toStartOf="@id/buttonNext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/buttonNext" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonNext"
+            style="@style/CommonButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginBottom="24dp"
+            android:text="Lanjut"
+            android:textSize="14sp"
+            app:cornerRadius="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_goneMarginTop="24dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

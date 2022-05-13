@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Beranda"/>
+
+    <item
+        android:id="@+id/historyPaymentFragment"
+        android:icon="@drawable/transaksi_icon"
+        android:title="Pembayaran"/>
+
+    <item
+        android:id="@+id/doctorContainerFragment"
+        android:icon="@drawable/ic_doctor"
+        android:title="Dokter" />
+
+<!--    <item-->
+<!--        android:id="@+id/forgotPasswordFragment"-->
+<!--        android:icon="@drawable/ic_home"-->
+<!--        android:title="Riwayat"/>-->
+
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@drawable/ic_notification"
+        android:title="Pemberitahuan" />
+
+    <item
+        android:id="@+id/profileShowFragment"
+        android:icon="@drawable/profile_icon"
+        android:title="Akun"/>
+
+</menu>

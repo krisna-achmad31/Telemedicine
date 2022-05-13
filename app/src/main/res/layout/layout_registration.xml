@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.telemedicine.indihealth.ui.fragment.registration.RegistrationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/splashScreenBackgroundColor">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/top_rounded_background"
+            app:layout_constraintBottom_toTopOf="@id/border"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/TextHeader1Style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/poppins_family"
+                    android:text="Daftar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Nama Lengkap"
+                        android:text="@={vm.fullname}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout2"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Nama Pengguna"
+                        android:text="@={vm.username}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout3"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Nomor Telepon"
+                        android:inputType="number"
+                        android:text="@={vm.telephone}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout4"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Email"
+                        android:text="@={vm.email}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout5"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:layout_marginEnd="0dp"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Kata Sandi"
+                        android:inputType="textPassword"
+                        android:text="@={vm.password}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout6"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:layout_marginEnd="0dp"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Masukan Ulang Kata Sandi"
+                        android:inputType="textPassword"
+                        android:text="@={vm.confirm_password}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout7"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/CommonEditTextStyle"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:hint="Tempat Lahir"
+                        android:text="@={vm.birth_place}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout8"
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    app:layout_constraintEnd_toEndOf="@+id/textView"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tv_birth"
+                        style="@style/CommonEditTextStyle"
+                        android:layout_marginEnd="40dp"
+                        android:afterTextChanged="@{vm::afterTextChanged}"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="Tanggal Lahir (Klik Disini)"
+                        android:text="@={vm.birth_date}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_calendar"
+                    app:layout_constraintBottom_toBottomOf="@id/textInputLayout8"
+                    app:layout_constraintEnd_toEndOf="@id/textInputLayout8"
+                    app:layout_constraintTop_toTopOf="@id/textInputLayout8" />
+
+                <Spinner
+                    android:id="@+id/dd_gender"
+                    style="@style/CommonSpinnerStyle"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/edit_text_rounded_background"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                    app:layout_constraintBottom_toBottomOf="@id/dd_gender"
+                    app:layout_constraintEnd_toEndOf="@id/dd_gender"
+                    app:layout_constraintTop_toTopOf="@id/dd_gender" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button"
+                    style="@style/CommonButtonStyle"
+                    android:layout_width="match_parent"
+                    android:clickable="@{vm.isFieldsFilled()}"
+                    android:enabled="@{vm.isFieldsFilled()}"
+                    android:onClick="@{() -> vm.attemptRegister()}"
+                    android:text="Daftar"
+                    app:layout_constraintTop_toBottomOf="@id/dd_gender" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/border"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/borderColor"
+            app:layout_constraintBottom_toTopOf="@id/textView3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:text="@string/sudah_memiliki_akun"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
